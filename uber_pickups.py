@@ -5,18 +5,12 @@ import google.generativeai as genai
 import google.ai.generativelanguage as glm
 
 with st.sidebar:
-    st.title("Gemini API")
+    st.title("Vinay's GPT demo")
     
-    api_key = st.text_input("API key")
-    if api_key:
-        genai.configure(api_key=api_key)
-    else:
-        if "api_key" in st.secrets:
-            genai.configure(api_key=st.secrets["api_key"])
-        else:
-            st.error("Missing API key.")
+    #api_key = st.text_input("API key")
+    genai.configure(api_key="AIzaSyBbWHikKGBBcpjr--xu5GDIpTHAa8M0hdQ")
     
-    select_model = st.selectbox("Select model", ["gemini-pro", "gemini-pro-vision"])
+    select_model = st.selectbox("Select model", ["gemini-pro"])
     if select_model == "gemini-pro-vision":
         uploaded_image = st.file_uploader(
             "upload image",
